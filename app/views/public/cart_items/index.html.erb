@@ -1,0 +1,60 @@
+<div class="container">
+<div class="row">
+<div class="col-11" id="no_cart">
+  <% if @cart_items.present? %>
+    <h3 class= "text-left">ショッピングカート</h3>
+  <div align= "right">
+    <%= link_to "カートを空にする", cart_items_path, method: :delete, data: {confirm: 'カートを空にしてよろしいですか？'}, class: "btn btn-danger" %>
+  </div>
+    <table class="table table-hover table-bordered">
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+    <% @total = 0 %>
+    <% @cart_items.each do |i| %>
+    <% @total += i.subtotal %>
+      <tr id="cart-<%= i.id %>">
+        <td>
+          <%= image_tag i.item.image, size: "80x50", fallback: "default-image.jpeg" %>
+          <%= i.item.name %>
+        </td>
+        <td>
+          <font size="4"><%= i.item.with_tax_price %></font>
+        </td>
+        <td class= "col-2 p-3">
+          <%#= form_with model:i.item, url: cart_item_path(i), method: :patch , remote: true do |f| %>
+           <%= form_with model:i, url: cart_item_path(i), method: :patch , remote: true do |f| %>
+           <%= f.select :amount, *[1..10], :selected=>i.amount %>
+           <%= f.submit "変更", class: "btn btn-success" %>
+          <% end %>
+        </td>
+        <td>
+          <font size="4"><%= i.subtotal %></font>
+        </td>
+        <td class= "col-2 text-center">
+          <%= link_to " 削除する", cart_item_path(i), method: :delete, remote: true, data: {confirm: "#{i.item.name}を削除してよろしいですか？"}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+     <%= link_to " 買い物を続ける", root_path, class: "btn btn-info" %>
+     <table align=right class="table table-bordered col-3">
+      <tr>
+       <td>合計金額</td>
+       <td>
+         <%= @total %>
+       </td>
+      </tr>
+     </table>
+    <div class= "text-center">
+     <%= link_to " 情報入力に進む", new_order_path, class: "btn btn-success" %>
+    </div>
+
+<% end %>
+</div>
+</div>
+</div>
