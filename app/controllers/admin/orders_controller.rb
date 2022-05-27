@@ -24,14 +24,6 @@ class Admin::OrdersController < ApplicationController
 
   end
 
-  def today_order_index
-
-  end
-
-  def current_index
-
-  end
-
   private
 
   def order_params

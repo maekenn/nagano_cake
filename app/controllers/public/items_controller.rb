@@ -1,4 +1,8 @@
 class Public::ItemsController < ApplicationController
+
+  def top
+    @items = Item.all.page(params[:page]).per(4)
+  end
   def index
     @total_items = Item.all
     @items = Item.all.page(params[:page]).per(8)

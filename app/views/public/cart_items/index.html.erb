@@ -26,7 +26,6 @@
           <font size="4"><%= i.item.with_tax_price %></font>
         </td>
         <td class= "col-2 p-3">
-          <%#= form_with model:i.item, url: cart_item_path(i), method: :patch , remote: true do |f| %>
            <%= form_with model:i, url: cart_item_path(i), method: :patch , remote: true do |f| %>
            <%= f.select :amount, *[1..10], :selected=>i.amount %>
            <%= f.submit "変更", class: "btn btn-success" %>

@@ -9,11 +9,11 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field my-2">
           <%= f.label :"メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, placeholder:"例）nagano_cake@example.com", autocomplete: "email",class:"form-control" %>
+          <%= f.email_field :email, autofocus: true, placeholder:"sample @example.com", autocomplete: "email",class:"form-control" %>
         </div>
           <div class="field my-2">
             <%= f.label :"パスワード" %><br />
-            <%= f.password_field :password, placeholder:"例）xxxxxx", autocomplete: "current-password",class:"form-control" %>
+            <%= f.password_field :password, autocomplete: "current-password",class:"form-control" %>
           </div>
           <div class="actions my-3 text-center">
 

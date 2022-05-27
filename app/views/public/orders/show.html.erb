@@ -35,7 +35,7 @@
           <tbody>
             <tr>
                 <td class="active">商品合計</td>
-                <td>¥<%= (@order.total_payment.to_i - @shipping_cost) %></td>
+                <td>¥<%= @order.total_payment  - @shipping_cost %></td>
             </tr>
             <tr>
               <td class="active">配送料</td>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
               <td class="active"><b>ご請求額</b></td>
-              <td>¥<%= "#{@order.total_payment.to_s(:delimited)}"%></td>
+              <td>¥<%= "#{@order.total_payment.to_s (:delimited)}"%></td>
             </tr>
           </tbody>
         </table>

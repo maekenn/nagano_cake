@@ -9,9 +9,10 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-　<body>
+  <body>
    <header class="border-dark border-bottom">
     <nav class="navbar navbar-expand-lg navbar-light">
+      <h2 class="text-left border border-dark ">LOGO</h2>
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
          <% if customer_signed_in? %>
@@ -62,7 +63,11 @@
           <% end %>
         </ul>
       </div>
-　　 </nav>
-　</header>
-　<%= yield %>
-</body>
+     </nav>
+    </header>
+   <%= yield %>
+  </body>
+  <footer class="border-dark border">
+
+  </footer>
+</html>
